@@ -1,0 +1,10 @@
+#timeview{
+    line(0,0,45,0)
+    text(0,3,"10:15")
+}
+#lineview{
+    color(20)
+    line(0,0,22,22)
+    !timeview(20,20)
+}
+!lineview(0,0)
