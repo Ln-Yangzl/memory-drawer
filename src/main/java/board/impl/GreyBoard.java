@@ -33,15 +33,17 @@ public class GreyBoard implements Board {
     public void draw(List<Point> points) {
         for (Point point : points) {
             if(checkBound(point)){
-                board[boardSize - point.getX() - 1][point.getY()] = (char)color;
+                board[boardSize - point.getY() - 1][point.getX()] = (char)color;
             }
         }
     }
 
     @Override
     public Object getState() {
-        char[][] copy = new char[boardSize][boardSize];
-        System.arraycopy(board, 0, copy, 0, boardSize);
+        char[][] copy = new char[boardSize][];
+        for (int i = 0; i < boardSize; i++) {
+            copy[i] = board[i].clone();
+        }
         return copy;
     }
 

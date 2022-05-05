@@ -8,7 +8,7 @@ import java.util.Objects;
  * @date: 2022-05-03 18:59
  * @description:
  */
-public class BitMap {
+public class BitMap{
     private final byte[] bits;
 
     private final int size;
@@ -65,4 +65,5 @@ public class BitMap {
         result = 31 * result + Arrays.hashCode(bits);
         return result;
     }
+
 }

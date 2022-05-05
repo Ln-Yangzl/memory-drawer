@@ -33,17 +33,13 @@ public interface Board {
      * 获取当前设置颜色值
      * @return 颜色值
      */
-    default int getColor(){
-        return 0;
-    };
+    int getColor();
 
     /**
      * 设置新的颜色值
      * @param color 新颜色值
      * @return      原来的颜色值
      */
-    default int setColor(int color){
-        return 0;
-    };
+    int setColor(int color);
 
 }

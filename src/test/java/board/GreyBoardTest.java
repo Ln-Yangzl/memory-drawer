@@ -1,9 +1,9 @@
 package board;
 
-import board.impl.BinaryBoard;
 import board.impl.GreyBoard;
 import org.junit.Test;
 import utils.LineDrawer;
+import utils.TextDrawer;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,6 +23,35 @@ public class GreyBoardTest {
                 +"  9  \n"
                 +" 9   \n"
                 +"9    \n";
+        assertEquals(except, greyBoard.toString());
+    }
+
+    @Test
+    public void simpleTextTest(){
+        String std = "   1    \n" +
+                "   1    \n" +
+                "   1    \n" +
+                "   1    \n" +
+                "   1    \n" +
+                "        \n" +
+                "   1    \n" +
+                "        \n";
+        GreyBoard greyBoard = new GreyBoard(8, 26);
+        greyBoard.draw(TextDrawer.drawText(0, 0, "!"));
+        assertEquals(std, greyBoard.toString());
+    }
+
+    @Test
+    public void stateTest(){
+        GreyBoard greyBoard = new GreyBoard(5, 255);
+        Object state = greyBoard.getState();
+        greyBoard.draw(LineDrawer.drawLine(0, 0, 3, 3));
+        greyBoard.setState(state);
+        String except = "     \n"
+                +"     \n"
+                +"     \n"
+                +"     \n"
+                +"     \n";
         assertEquals(except, greyBoard.toString());
     }
 }

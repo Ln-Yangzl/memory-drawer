@@ -19,12 +19,19 @@ public class BinaryBoard implements Board {
 
     private final int boardSize;
 
+    private int color;
+
     public BinaryBoard() {
-        this(50);
+        this(50, 1);
     }
 
     public BinaryBoard(int size){
+        this(size, 1);
+    }
+
+    public BinaryBoard(int size, int color){
         this.boardSize = size;
+        this.color = color;
         this.bitMaps = new BitMap[boardSize];
         for (int i = 0; i < boardSize; i++) {
             bitMaps[i] = new BitMap(boardSize);
@@ -36,7 +43,7 @@ public class BinaryBoard implements Board {
     public void draw(List<Point> points) {
         for (Point point : points) {
             if(checkBound(point)){
-                bitMaps[boardSize - point.getX() - 1].set(point.getY(), 1);
+                bitMaps[boardSize - point.getY() - 1].set(point.getX(), color);
             }
         }
     }
@@ -44,13 +51,27 @@ public class BinaryBoard implements Board {
     @Override
     public Object getState() {
         BitMap[] copy = new BitMap[boardSize];
-        System.arraycopy(bitMaps, 0, copy, 0, boardSize);
+        for (int i = 0; i < boardSize; i++) {
+            copy[i] = new BitMap(bitMaps[i]);
+        }
         return copy;
     }
 
     @Override
     public void setState(Object state) {
         this.bitMaps = (BitMap[]) state;
+    }
+
+    @Override
+    public int getColor() {
+        return color;
+    }
+
+    @Override
+    public int setColor(int color) {
+        int temp = color;
+        this.color = color == 0 ? 0 : 1;
+        return temp;
     }
 
     private boolean checkBound(Point point){

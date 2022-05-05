@@ -15,7 +15,7 @@ public class ColorParser implements BiFunction<String, CommandParser, Command> {
 
     @Override
     public Command apply(String s, CommandParser parser) {
-        int colorSet = Integer.parseInt(s.substring(s.indexOf('(') + 1, s.indexOf(')')));
+        int colorSet = Integer.parseInt(s.substring(s.indexOf('(') + 1, s.indexOf(')')).strip());
         return new ColorCommand(colorSet);
     }
 }

@@ -45,7 +45,7 @@ public class CommandReader {
         }
         while(scanner.hasNextLine()){
             String s = scanner.nextLine();
-            if(!s.isBlank()){
+            if(!s.isBlank() && !s.contains("//")){
                 nextLine = s;
                 return true;
             }

@@ -22,7 +22,7 @@ public class ParserTest {
                         "    text(0,3,\"10:15\")\n" +
                         "}",
                 "!timeview(50,50)"};
-        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("scripts/script1.txt"));
+        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("testScripts/test1.txt"));
         CommandParser commandParser = new CommandParser(commandReader);
         for (int i = 0; i < std.length; i++) {
             assertEquals(std[i], commandParser.nextCommand().toString());
@@ -43,7 +43,7 @@ public class ParserTest {
                         "}",
                 "!lineview(0,0)"
         };
-        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("scripts/script2.txt"));
+        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("testScripts/test2.txt"));
         CommandParser commandParser = new CommandParser(commandReader);
         for (int i = 0; i < std.length; i++) {
             assertEquals(std[i], commandParser.nextCommand().toString());

@@ -3,6 +3,7 @@ package board;
 import board.impl.BinaryBoard;
 import org.junit.Test;
 import utils.LineDrawer;
+import utils.TextDrawer;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,6 +23,35 @@ public class BinaryBoardTest {
                         +"  1  \n"
                         +" 1   \n"
                         +"1    \n";
+        assertEquals(except, binaryBoard.toString());
+    }
+
+    @Test
+    public void simpleTextTest(){
+        String std = "   1    \n" +
+                "   1    \n" +
+                "   1    \n" +
+                "   1    \n" +
+                "   1    \n" +
+                "        \n" +
+                "   1    \n" +
+                "        \n";
+        BinaryBoard binaryBoard = new BinaryBoard(8);
+        binaryBoard.draw(TextDrawer.drawText(0, 0, "!"));
+        assertEquals(std, binaryBoard.toString());
+    }
+
+    @Test
+    public void stateTest(){
+        BinaryBoard binaryBoard = new BinaryBoard(5);
+        Object state = binaryBoard.getState();
+        binaryBoard.draw(LineDrawer.drawLine(0, 0, 3, 3));
+        binaryBoard.setState(state);
+        String except = "     \n"
+                +"     \n"
+                +"     \n"
+                +"     \n"
+                +"     \n";
         assertEquals(except, binaryBoard.toString());
     }
 

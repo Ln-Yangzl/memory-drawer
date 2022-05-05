@@ -1,5 +1,6 @@
 package command.impl;
 
+import board.Board;
 import command.Command;
 
 import java.util.List;
@@ -31,6 +32,12 @@ public class MacroCallCommand extends Command {
             command.execute();
         });
         board.setColor(color);
+    }
+
+    @Override
+    public void setReceiver(Board board) {
+        super.setReceiver(board);
+        commandList.forEach(command -> command.setReceiver(board));
     }
 
     @Override

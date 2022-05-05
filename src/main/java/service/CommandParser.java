@@ -28,12 +28,23 @@ public class CommandParser {
         parser.put(CmdType.COLOR, new ColorParser());
         parser.put(CmdType.MACRO_CALL, new MacroCallParser());
         parser.put(CmdType.MACRO_DEFINE, new MacroDefineParser());
+        parser.put(CmdType.REDO, new RedoParser());
+        parser.put(CmdType.UNDO, new UndoParser());
     }
-
-    private String nextLine;
 
     public CommandParser(CommandReader commandReader) {
         this.commandReader = commandReader;
+    }
+
+    public List<Command> getAllCommand(){
+        ArrayList<Command> commands = new ArrayList<>();
+        while(hasNextCommand()){
+            Command command = nextCommand();
+            if(!(command instanceof MacroDefineCommand)){
+                commands.add(command);
+            }
+        }
+        return commands;
     }
 
     public boolean hasNextCommand() {

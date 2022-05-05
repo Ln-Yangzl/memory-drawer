@@ -14,13 +14,15 @@ public enum CmdType {
     MACRO_CALL("!"),
     LINE("line"),
     TEXT("text"),
-    COLOR("color")
+    COLOR("color"),
+    REDO("redo"),
+    UNDO("undo")
     ;
 
     public static CmdType getType(String s){
-        s = s.split("\\n")[0];
+        s = s.split("\\n")[0].stripLeading();
         for (CmdType value : CmdType.values()) {
-            if(s.contains(value.getName())){
+            if(s.contains(value.getName()) && s.indexOf(value.getName()) == 0){
                 return value;
             }
         }

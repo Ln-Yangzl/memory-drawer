@@ -21,6 +21,8 @@ public class TextParser implements BiFunction<String, CommandParser, Command> {
     public Command apply(String s, CommandParser parser) {
         List<String> args = Arrays.stream(s.substring(s.indexOf('(') + 1, s.indexOf(')'))
                 .split(","))
+                .map(String::stripLeading)
+                .map(String::stripTrailing)
                 .collect(Collectors.toList());
         return new TextCommand(Integer.parseInt(args.get(0)), Integer.parseInt(args.get(1)), args.get(2).replace("\"", ""));
     }

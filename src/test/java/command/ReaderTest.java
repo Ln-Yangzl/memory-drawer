@@ -14,14 +14,14 @@ public class ReaderTest {
 
     @Test
     public void simpleReadTest(){
-        String[] STD = {"line(0, 0, 19, 19)",
-                "text(11, 0, \"!\")",
+        String[] STD = {"line(0,0,19,19)",
+                "text(11,0,\"!\")",
                 "#timeview{\n" +
                         "    line(0,0,45,0)\n" +
                         "    text(0,3,\"10:15\")\n" +
                         "}",
                 "!timeview(50,50)"};
-        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("scripts/script1.txt"));
+        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("testScripts/test1.txt"));
         for (int i = 0; i < STD.length; i++) {
             assertEquals(STD[i], commandReader.nextCommandString());
         }
@@ -41,7 +41,7 @@ public class ReaderTest {
                         "}",
                 "!lineview(0,0)"
         };
-        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("scripts/script2.txt"));
+        CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("testScripts/test2.txt"));
         for (int i = 0; i < std.length; i++) {
             assertEquals(std[i], commandReader.nextCommandString());
         }

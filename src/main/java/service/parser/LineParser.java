@@ -20,6 +20,8 @@ public class LineParser implements BiFunction<String, CommandParser, Command> {
     public Command apply(String s, CommandParser parser) {
         List<Integer> args = Arrays.stream(s.substring(s.indexOf('(') + 1, s.indexOf(')'))
                 .split(","))
+                .map(String::stripLeading)
+                .map(String::stripTrailing)
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
         return new LineCommand(args.get(0), args.get(1), args.get(2), args.get(3));
