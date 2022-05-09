@@ -52,7 +52,7 @@ public class CommandParser {
 
     public Command nextCommand() {
         if(!hasNextCommand()){
-            throw new RuntimeException("No more org.zlyang.memoryDrawer.command found!");
+            throw new RuntimeException("No more command found!");
         }
         String commandString = commandReader.nextCommandString();
         Command command = parser.get(CmdType.getType(commandString)).apply(commandString, this);
