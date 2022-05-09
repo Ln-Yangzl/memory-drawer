@@ -2,6 +2,7 @@ package command.impl;
 
 import board.Board;
 import command.Command;
+import command.Executable;
 import utils.LineDrawer;
 
 /**
@@ -9,7 +10,7 @@ import utils.LineDrawer;
  * @date: 2022-04-30 18:11
  * @description:
  */
-public class LineCommand extends Command {
+public class LineCommand extends Command implements Executable {
 
     private final int x1, x2, y1, y2;
 

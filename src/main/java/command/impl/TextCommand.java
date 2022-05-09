@@ -2,6 +2,7 @@ package command.impl;
 
 import board.Board;
 import command.Command;
+import command.Executable;
 import utils.TextDrawer;
 
 /**
@@ -9,7 +10,7 @@ import utils.TextDrawer;
  * @date: 2022-05-03 10:17
  * @description:
  */
-public class TextCommand extends Command {
+public class TextCommand extends Command implements Executable {
 
     private final String text;
 

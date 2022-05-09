@@ -32,7 +32,7 @@ public class MacroDefineCommand extends Command {
 
     @Override
     protected void executeCommand() {
-        throw new IllegalCallerException("MacroDefineCommand execute method called!");
+        throw new RuntimeException("MacroDefineCommand execute method called!");
     }
 
     @Override

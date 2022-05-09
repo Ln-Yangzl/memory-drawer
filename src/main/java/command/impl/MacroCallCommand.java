@@ -2,6 +2,7 @@ package command.impl;
 
 import board.Board;
 import command.Command;
+import command.Executable;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * @date: 2022-05-03 11:12
  * @description:
  */
-public class MacroCallCommand extends Command {
+public class MacroCallCommand extends Command implements Executable {
 
     private final List<Command> commandList;
 

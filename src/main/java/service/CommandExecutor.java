@@ -40,21 +40,26 @@ public class CommandExecutor {
     public void executeAll() {
         while(!commandList.isEmpty()){
             Command nextCommand = commandList.pollFirst();
-            if(nextCommand instanceof RedoCommand && !redoList.isEmpty()){
-                Command command = redoList.pollLast();
-                command.execute();
-                executedCommand.add(command);
-                continue;
-            }
-            if(nextCommand instanceof UndoCommand && !executedCommand.isEmpty()){
-                Command command = executedCommand.pollLast();
-                command.unExecute();
-                redoList.add(command);
-                continue;
-            }
-            nextCommand.execute();
-            executedCommand.add(nextCommand);
-            redoList.clear();
+            execute(nextCommand);
         }
+    }
+
+    public void execute(Command nextCommand) {
+        nextCommand.setReceiver(board);
+        if(nextCommand instanceof RedoCommand && !redoList.isEmpty()){
+            Command command = redoList.pollLast();
+            command.execute();
+            executedCommand.add(command);
+            return;
+        }
+        if(nextCommand instanceof UndoCommand && !executedCommand.isEmpty()){
+            Command command = executedCommand.pollLast();
+            command.unExecute();
+            redoList.add(command);
+            return;
+        }
+        nextCommand.execute();
+        executedCommand.add(nextCommand);
+        redoList.clear();
     }
 }

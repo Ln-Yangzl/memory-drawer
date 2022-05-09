@@ -55,7 +55,7 @@ public class CommandReader {
 
     private String getNextLine(){
         if(!setNextLine()){
-            throw new IllegalCallerException("setNextLine failed!\n Check input file!");
+            throw new RuntimeException("setNextLine failed!\n Check input file!");
         }
         String temp = nextLine;
         nextLine = null;

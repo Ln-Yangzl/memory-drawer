@@ -1,13 +1,14 @@
 import board.Board;
 import board.impl.BinaryBoard;
 import board.impl.GreyBoard;
+import command.Command;
+import command.Executable;
+import command.impl.ColorCommand;
 import service.CommandExecutor;
 import service.CommandParser;
 import service.CommandReader;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * @author: zlyang
@@ -16,7 +17,7 @@ import java.io.InputStream;
  */
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         String inputFile = null;
         Board board = null;
         int color = 2;
@@ -32,6 +33,15 @@ public class Main {
             return;
         }
 
+        String path = System.getProperty("java.class.path");
+        path = path.split("target")[0] + "src\\main\\resources\\out\\" + inputFile;
+        File file = new File(path);
+        if(file.exists()){
+            file.delete();
+        }
+        file.createNewFile();
+        System.setOut(new PrintStream(path));
+
         InputStream inputStream = null;
         if(inputFile != null){
             inputStream = Main.class.getClassLoader().getResourceAsStream(inputFile);
@@ -46,11 +56,19 @@ public class Main {
         CommandParser commandParser = new CommandParser(new CommandReader(inputStream));
         CommandExecutor commandExecutor = new CommandExecutor(board);
 
-        commandParser.getAllCommand().forEach(commandExecutor::addCommand);
 
-        commandExecutor.executeAll();
+        while(commandParser.hasNextCommand()){
+            Command nextCommand = commandParser.nextCommand();
+            if(nextCommand instanceof Executable){
+                commandExecutor.execute(nextCommand);
+                if(!(nextCommand instanceof ColorCommand)){
+                    System.out.println(nextCommand);
+                    System.out.println(board);
+                }
+            }
 
-        System.out.println(board);
+        }
+
 
     }
 }
