@@ -1,9 +1,9 @@
 package org.zlyang.memoryDrawer.system;
 
 import org.zlyang.memoryDrawer.board.Board;
-import org.zlyang.memoryDrawer.serviceTest.Command;
-import org.zlyang.memoryDrawer.serviceTest.Executable;
-import org.zlyang.memoryDrawer.serviceTest.impl.ColorCommand;
+import org.zlyang.memoryDrawer.Command.Command;
+import org.zlyang.memoryDrawer.Command.Executable;
+import org.zlyang.memoryDrawer.Command.impl.ColorCommand;
 import org.zlyang.memoryDrawer.service.CommandExecutor;
 import org.zlyang.memoryDrawer.service.CommandParser;
 import org.zlyang.memoryDrawer.service.CommandReader;

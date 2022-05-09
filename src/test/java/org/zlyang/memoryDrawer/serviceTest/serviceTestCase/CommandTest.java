@@ -1,9 +1,9 @@
 package org.zlyang.memoryDrawer.serviceTest.serviceTestCase;
 
 import org.zlyang.memoryDrawer.board.impl.GreyBoard;
-import org.zlyang.memoryDrawer.serviceTest.impl.ColorCommand;
-import org.zlyang.memoryDrawer.serviceTest.impl.LineCommand;
-import org.zlyang.memoryDrawer.serviceTest.impl.TextCommand;
+import org.zlyang.memoryDrawer.Command.impl.ColorCommand;
+import org.zlyang.memoryDrawer.Command.impl.LineCommand;
+import org.zlyang.memoryDrawer.Command.impl.TextCommand;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

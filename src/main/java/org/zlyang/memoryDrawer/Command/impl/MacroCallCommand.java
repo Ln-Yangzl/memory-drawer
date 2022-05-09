@@ -1,8 +1,8 @@
-package org.zlyang.memoryDrawer.serviceTest.impl;
+package org.zlyang.memoryDrawer.Command.impl;
 
 import org.zlyang.memoryDrawer.board.Board;
-import org.zlyang.memoryDrawer.serviceTest.Command;
-import org.zlyang.memoryDrawer.serviceTest.Executable;
+import org.zlyang.memoryDrawer.Command.Command;
+import org.zlyang.memoryDrawer.Command.Executable;
 
 import java.util.List;
 

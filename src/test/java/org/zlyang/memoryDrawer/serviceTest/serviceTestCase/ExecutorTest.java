@@ -2,10 +2,10 @@ package org.zlyang.memoryDrawer.serviceTest.serviceTestCase;
 
 import org.zlyang.memoryDrawer.board.impl.BinaryBoard;
 import org.zlyang.memoryDrawer.board.impl.GreyBoard;
-import org.zlyang.memoryDrawer.serviceTest.impl.ColorCommand;
-import org.zlyang.memoryDrawer.serviceTest.impl.LineCommand;
-import org.zlyang.memoryDrawer.serviceTest.impl.TextCommand;
-import org.zlyang.memoryDrawer.serviceTest.impl.UndoCommand;
+import org.zlyang.memoryDrawer.Command.impl.ColorCommand;
+import org.zlyang.memoryDrawer.Command.impl.LineCommand;
+import org.zlyang.memoryDrawer.Command.impl.TextCommand;
+import org.zlyang.memoryDrawer.Command.impl.UndoCommand;
 import org.junit.Test;
 import org.zlyang.memoryDrawer.service.CommandExecutor;
 

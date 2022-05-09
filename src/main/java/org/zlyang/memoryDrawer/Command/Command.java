@@ -1,4 +1,4 @@
-package org.zlyang.memoryDrawer.serviceTest;
+package org.zlyang.memoryDrawer.Command;
 
 import org.zlyang.memoryDrawer.board.Board;
 

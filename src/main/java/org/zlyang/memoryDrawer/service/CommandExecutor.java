@@ -1,9 +1,9 @@
 package org.zlyang.memoryDrawer.service;
 
 import org.zlyang.memoryDrawer.board.Board;
-import org.zlyang.memoryDrawer.serviceTest.Command;
-import org.zlyang.memoryDrawer.serviceTest.impl.RedoCommand;
-import org.zlyang.memoryDrawer.serviceTest.impl.UndoCommand;
+import org.zlyang.memoryDrawer.Command.Command;
+import org.zlyang.memoryDrawer.Command.impl.RedoCommand;
+import org.zlyang.memoryDrawer.Command.impl.UndoCommand;
 
 import java.util.LinkedList;
 /**

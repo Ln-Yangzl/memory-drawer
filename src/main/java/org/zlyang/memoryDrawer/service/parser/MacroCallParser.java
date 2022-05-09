@@ -1,7 +1,7 @@
 package org.zlyang.memoryDrawer.service.parser;
 
-import org.zlyang.memoryDrawer.serviceTest.Command;
-import org.zlyang.memoryDrawer.serviceTest.impl.MacroCallCommand;
+import org.zlyang.memoryDrawer.Command.Command;
+import org.zlyang.memoryDrawer.Command.impl.MacroCallCommand;
 import org.zlyang.memoryDrawer.service.CommandParser;
 
 import java.util.Arrays;
