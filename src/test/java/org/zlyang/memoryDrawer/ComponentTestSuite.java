@@ -13,5 +13,5 @@ import org.zlyang.memoryDrawer.serviceTest.ServiceSuite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({BoardSuite.class, DrawerSuite.class, ServiceSuite.class})
-public class ComponentTestSuit {
+public class ComponentTestSuite {
 }
