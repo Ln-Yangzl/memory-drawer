@@ -1,9 +1,9 @@
 package org.zlyang.memoryDrawer.service;
 
 import org.zlyang.memoryDrawer.board.Board;
-import org.zlyang.memoryDrawer.command.Command;
-import org.zlyang.memoryDrawer.command.impl.RedoCommand;
-import org.zlyang.memoryDrawer.command.impl.UndoCommand;
+import org.zlyang.memoryDrawer.serviceTest.Command;
+import org.zlyang.memoryDrawer.serviceTest.impl.RedoCommand;
+import org.zlyang.memoryDrawer.serviceTest.impl.UndoCommand;
 
 import java.util.LinkedList;
 /**
@@ -46,13 +46,19 @@ public class CommandExecutor {
 
     public void execute(Command nextCommand) {
         nextCommand.setReceiver(board);
-        if(nextCommand instanceof RedoCommand && !redoList.isEmpty()){
+        if(nextCommand instanceof RedoCommand){
+            if(redoList.isEmpty()){
+                return;
+            }
             Command command = redoList.pollLast();
             command.execute();
             executedCommand.add(command);
             return;
         }
-        if(nextCommand instanceof UndoCommand && !executedCommand.isEmpty()){
+        if(nextCommand instanceof UndoCommand){
+            if(executedCommand.isEmpty()){
+                return;
+            }
             Command command = executedCommand.pollLast();
             command.unExecute();
             redoList.add(command);
@@ -61,5 +67,12 @@ public class CommandExecutor {
         nextCommand.execute();
         executedCommand.add(nextCommand);
         redoList.clear();
+    }
+
+    public void setBoard(Board board){
+        this.board = board;
+        commandList.clear();
+        redoList.clear();
+        executedCommand.clear();
     }
 }

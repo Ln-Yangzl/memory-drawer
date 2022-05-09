@@ -1,7 +1,7 @@
 package org.zlyang.memoryDrawer.service;
 
-import org.zlyang.memoryDrawer.command.Command;
-import org.zlyang.memoryDrawer.command.impl.*;
+import org.zlyang.memoryDrawer.serviceTest.Command;
+import org.zlyang.memoryDrawer.serviceTest.impl.*;
 import org.zlyang.memoryDrawer.service.parser.*;
 import org.zlyang.memoryDrawer.utils.CmdType;
 

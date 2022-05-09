@@ -1,4 +1,4 @@
-package org.zlyang.memoryDrawer.drawer;
+package org.zlyang.memoryDrawer.drawer.drawerTestCase;
 
 import org.junit.Test;
 import org.zlyang.memoryDrawer.utils.BitMap;

@@ -1,20 +1,21 @@
-package org.zlyang.memoryDrawer.command;
+package org.zlyang.memoryDrawer.serviceTest.serviceTestCase;
 
 import org.junit.Test;
+import org.zlyang.memoryDrawer.service.CommandParser;
 import org.zlyang.memoryDrawer.service.CommandReader;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author: zlyang
- * @date: 2022-05-03 15:58
+ * @date: 2022-05-03 16:31
  * @description:
  */
-public class ReaderTest {
+public class ParserTest {
 
     @Test
-    public void simpleReadTest(){
-        String[] STD = {"line(0,0,19,19)",
+    public void simpleParserTest(){
+        String[] std = {"line(0,0,19,19)",
                 "text(11,0,\"!\")",
                 "#timeview{\n" +
                         "    line(0,0,45,0)\n" +
@@ -22,8 +23,9 @@ public class ReaderTest {
                         "}",
                 "!timeview(50,50)"};
         CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("testScripts/test1.txt"));
-        for (int i = 0; i < STD.length; i++) {
-            assertEquals(STD[i], commandReader.nextCommandString());
+        CommandParser commandParser = new CommandParser(commandReader);
+        for (int i = 0; i < std.length; i++) {
+            assertEquals(std[i], commandParser.nextCommand().toString());
         }
     }
 
@@ -42,9 +44,9 @@ public class ReaderTest {
                 "!lineview(0,0)"
         };
         CommandReader commandReader = new CommandReader(getClass().getClassLoader().getResourceAsStream("testScripts/test2.txt"));
+        CommandParser commandParser = new CommandParser(commandReader);
         for (int i = 0; i < std.length; i++) {
-            assertEquals(std[i], commandReader.nextCommandString());
+            assertEquals(std[i], commandParser.nextCommand().toString());
         }
     }
-
 }

@@ -1,8 +1,8 @@
 package org.zlyang.memoryDrawer.service.parser;
 
-import org.zlyang.memoryDrawer.command.Command;
-import org.zlyang.memoryDrawer.command.impl.MacroCallCommand;
-import org.zlyang.memoryDrawer.command.impl.MacroDefineCommand;
+import org.zlyang.memoryDrawer.serviceTest.Command;
+import org.zlyang.memoryDrawer.serviceTest.impl.MacroCallCommand;
+import org.zlyang.memoryDrawer.serviceTest.impl.MacroDefineCommand;
 import org.zlyang.memoryDrawer.service.CommandParser;
 import org.zlyang.memoryDrawer.utils.CmdType;
 

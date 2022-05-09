@@ -1,4 +1,4 @@
-package org.zlyang.memoryDrawer.board;
+package org.zlyang.memoryDrawer.board.boardTestCase;
 
 import org.zlyang.memoryDrawer.board.impl.GreyBoard;
 import org.junit.Test;

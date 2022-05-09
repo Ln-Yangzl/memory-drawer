@@ -1,7 +1,7 @@
-package org.zlyang.memoryDrawer.command.impl;
+package org.zlyang.memoryDrawer.serviceTest.impl;
 
-import org.zlyang.memoryDrawer.command.Command;
-import org.zlyang.memoryDrawer.command.Executable;
+import org.zlyang.memoryDrawer.serviceTest.Command;
+import org.zlyang.memoryDrawer.serviceTest.Executable;
 import org.zlyang.memoryDrawer.utils.TextDrawer;
 
 /**
