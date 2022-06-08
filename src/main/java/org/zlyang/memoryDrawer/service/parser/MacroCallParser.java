@@ -20,6 +20,7 @@ public class MacroCallParser implements BiFunction<String, CommandParser, Comman
     public Command apply(String s, CommandParser parser) {
         String name = s.substring(s.indexOf("!") + 1, s.indexOf("("));
         List<Integer> args = Arrays.stream(s.substring(s.indexOf("(") + 1, s.indexOf(")")).split(","))
+                .map(String::strip)
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
         return new MacroCallCommand(parser.getMacroDefinition(name), args.get(0), args.get(1));
